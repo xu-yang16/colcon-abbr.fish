@@ -8,26 +8,24 @@ function register_colcon_build
     set -q COLCON_ABBR_ADDITIONAL_OPTIONS && set additional_options " $COLCON_ABBR_ADDITIONAL_OPTIONS" || set additional_options ""
     set -q COLCON_ABBR_CMAKE_ARGS && set cmake_args " $COLCON_ABBR_CMAKE_ARGS" || set cmake_args ""
 
-    set -l debug "-DCMAKE_BUILD_TYPE=Debug"
-    set -l release "-DCMAKE_BUILD_TYPE=Release"
-    set -l rel_with_deb_info "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
-
-    set -l cb "colcon build$symlink$additional_options --cmake-args$cmake_args"
+    set -l cb "colcon build"
 
     # colcon build
-    abbr -a cbd "$cb $debug"
-    abbr -a cbr "$cb $release"
-    abbr -a cbrd "$cb $rel_with_deb_info"
-
-    # colcon build --packages-up-to
-    abbr -a cbdp "$cb $debug --packages-up-to"
-    abbr -a cbrp "$cb $release --packages-up-to"
-    abbr -a cbrdp "$cb $rel_with_deb_info --packages-up-to"
+    abbr -a cb "$cb"
 
     # colcon build --packages-select
-    abbr -a cbdps "$cb $debug --packages-select"
-    abbr -a cbrps "$cb $release --packages-select"
-    abbr -a cbrdps "$cb $rel_with_deb_info --packages-select"
+    abbr -a cbps "$cb --packages-select"
+
+    # ros2 service call
+    abbr -a rsc "ros2 service call"
+    # ros2 run
+    abbr -a rr "ros2 run"
+    # ros2 topic hz
+    abbr -a rt_hz "ros2 topic hz"
+    # launch
+    abbr -a rl "ros2 launch"
+    # ros2 version
+    abbr -a ros_v "printenv ROS_DISTRO"
 end
 
 function register_colcon_test
