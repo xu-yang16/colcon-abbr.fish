@@ -12,6 +12,9 @@ activate-global-python-argcomplete
 ### Using fisher (recommended)
 
 ```sh
+# 
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+fisher install edc/bass
 fisher install xu-yang16/colcon-abbr.fish
 ```
 

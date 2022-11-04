@@ -26,6 +26,12 @@ function register_colcon_build
     abbr -a rl "ros2 launch"
     # ros2 version
     abbr -a ros_v "printenv ROS_DISTRO"
+
+    # clean
+    abbr -a cc "rm -r build install log"
+
+    # source
+    abbr -a bs "bass source install/setup.sh"
 end
 
 function register_colcon_test
