@@ -9,7 +9,11 @@ function register_colcon_build
     set -q COLCON_ABBR_CMAKE_ARGS && set cmake_args " $COLCON_ABBR_CMAKE_ARGS" || set cmake_args ""
 
     set -l cb "colcon build"
-
+    
+    # ros2 pkg create
+    abbr -a rpc_c "ros2 pkg create --build-type ament_cmake" 
+    abbr -a rpc_p"ros2 pkg create --build-type ament_python"
+    
     # colcon build
     abbr -a cb "$cb"
 
@@ -32,6 +36,18 @@ function register_colcon_build
 
     # source
     abbr -a bs "bass source install/setup.sh"
+    
+    # git operation
+    abbr -a ga "git add"
+    abbr -a gc "git commit -m"
+    abbr -a gp "git push"
+    abbr -a gs "git status"
+    
+    # sudo apt 
+    abbr -a sap "sudo apt update"
+    abbr -a sag "sudo apt upgrade"
+    abbr -a sai "sudo apt install"
+    
 end
 
 function register_colcon_test
