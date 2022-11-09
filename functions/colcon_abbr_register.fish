@@ -12,7 +12,7 @@ function register_colcon_build
     
     # ros2 pkg create
     abbr -a rpc_c "ros2 pkg create --build-type ament_cmake" 
-    abbr -a rpc_p"ros2 pkg create --build-type ament_python"
+    abbr -a rpc_p "ros2 pkg create --build-type ament_python"
     
     # colcon build
     abbr -a cb "$cb"
