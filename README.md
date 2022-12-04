@@ -5,17 +5,13 @@ colcon abbreviations for fish-shell
 ## Installation
 ### Install [argcomplete]((https://github.com/kislyuk/argcomplete))
 
-```sh
-pip3 install argcomplete
-activate-global-python-argcomplete
-```
-### Using fisher (recommended)
+### Using omf (recommended)
 
 ```sh
 # 
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-fisher install edc/bass
-fisher install xu-yang16/colcon-abbr.fish
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+omf install edc/bass
+omf install https://github.com/xu-yang16/colcon-abbr.fish
 ```
 
 ## Usage
@@ -23,30 +19,45 @@ fisher install xu-yang16/colcon-abbr.fish
 This plugin registers fish abbreviations related to colcon. For example,
 
 ```sh
-# Input
-$ cbps<Space>
+# ros2 pkg create
+abbr -a rpc_c "ros2 pkg create --build-type ament_cmake" 
+abbr -a rpc_p "ros2 pkg create --build-type ament_python"
 
-# Expanded Result
-$ colcon build --packages-select
-```
+# colcon build
+abbr -a cb "colcon build"
 
-## Tips
+# colcon build --packages-select
+abbr -a cbps "colcon build --packages-select"
 
-### Adding options
+# ros2 service call
+abbr -a rsc "ros2 service call"
+# ros2 run
+abbr -a rr "ros2 run"
+# ros2 topic hz
+abbr -a rt_hz "ros2 topic hz"
+# launch
+abbr -a rl "ros2 launch"
+# ros2 version
+abbr -a ros_v "printenv ROS_DISTRO"
 
-If you'd like to add options, please define `$COLCON_ABBR_ADDITIONAL_OPTIONS`.
+# clean
+abbr -a cc "rm -r build install log"
 
-```sh
-set -U COLCON_ABBR_ADDITIONAL_OPTIONS "--catkin-skip-building-tests"
-```
+# source
+abbr -a bs "bass source install/setup.sh"
 
-### Unregister abbreviations
+# git operation
+abbr -a ga "git add"
+abbr -a gaa "git add ."
+abbr -a gc "git commit -m ''"
+abbr -a gp "git push"
+abbr -a gs "git status"
+abbr -a gpl "git pull"
+abbr -a grth "git reset --hard"
 
-If you'd like to unregister all abbreviations, please use `colcon_abbr_unregister`.  
-As it just deletes all abbreviations starting from `cb`, you can manually remove registered abbreviations if you mind that deleting unrelated ones.
-
-```sh
-$ colcon_abbr_unregister
-[colcon-abbr] unregister cb
-$ fisher add xu-yang16/colcon-abbr.fish
+# sudo apt 
+abbr -a sap "sudo apt update"
+abbr -a sag "sudo apt upgrade"
+abbr -a sai "sudo apt install"
+abbr -a saa "sudo apt autoremove"
 ```

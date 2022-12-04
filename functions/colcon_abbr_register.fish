@@ -47,6 +47,6 @@ function register_colcon_build
     abbr -a sap "sudo apt update"
     abbr -a sag "sudo apt upgrade"
     abbr -a sai "sudo apt install"
-    abbr -a saa "sudo aot autoremove"
+    abbr -a saa "sudo apt autoremove"
     
 end
