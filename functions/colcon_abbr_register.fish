@@ -33,11 +33,23 @@ function register_colcon_build
 
     # source
     abbr -a bs "bass source install/setup.sh"
+    abbr -a bs1 "bass source /opt/ros/noetic/setup.bash"
+    abbr -a bs2 "bass source /opt/ros/foxy/setup.bash"
     
     # git operation
     abbr -a ga "git add"
     abbr -a gaa "git add ."
-    abbr -a gc "git commit -m ''"
+    abbr -a gc "git commit -m"
+
+    complete -k -f -c git -n '__fish_seen_subcommand_from commit; and __fish_seen_argument -s m -l message' -a 'build' -d "Changes that affect the build system or \r\ntexternal dependencies (example scopes: gulp, broccoli, npm)"
+    complete -k -f -c git -n '__fish_seen_subcommand_from commit; and __fish_seen_argument -s m -l message' -a 'ci' -d "Changes to our CI configuration files and scripts (example scopes: Circle, BrowserStack, SauceLabs)"
+    complete -k -f -c git -n '__fish_seen_subcommand_from commit; and __fish_seen_argument -s m -l message' -a 'docs' -d "Documentation only changes"
+    complete -k -f -c git -n '__fish_seen_subcommand_from commit; and __fish_seen_argument -s m -l message' -a 'feat' -d "A new feature"
+    complete -k -f -c git -n '__fish_seen_subcommand_from commit; and __fish_seen_argument -s m -l message' -a 'fix' -d "A bug fix"
+    complete -k -f -c git -n '__fish_seen_subcommand_from commit; and __fish_seen_argument -s m -l message' -a 'perf' -d "A code change that improves performance"
+    complete -k -f -c git -n '__fish_seen_subcommand_from commit; and __fish_seen_argument -s m -l message' -a 'refactor' -d "A code change that neither fixes a bug nor adds a feature"
+    complete -k -f -c git -n '__fish_seen_subcommand_from commit; and __fish_seen_argument -s m -l message' -a 'test' -d "Adding missing tests or correcting existing tests"
+    
     abbr -a gp "git push"
     abbr -a gs "git status"
     abbr -a gpl "git pull"
